@@ -1,0 +1,162 @@
+/* Reset */
+:root {
+    --oxford-blue:       hsl(217, 54%, 11%);
+    --light-oxford-blue: hsl(216, 50%, 16%);
+    --indigo-dye:        hsl(215, 32%, 27%);
+    --blue-yonder:       hsl(216, 30%, 55%);
+    --aqua:              hsl(178, 100%, 50%);
+    --white:             hsl(0, 0%, 100%);
+}
+
+/* default */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { font-family: 'Outfit', sans-serif;}
+
+a {text-decoration: none;}
+
+/* 바깥 바탕 */
+body {
+    background-color: var(--oxford-blue);
+    min-height: 100vh; 
+    padding: 25px;
+    display: flex;
+    /* 중간정렬 */
+    justify-content: center; 
+    align-items: center;
+}
+
+/* 가운데 박스 */
+.card {
+    background: var(--light-oxford-blue);
+    max-width: 350px;
+    padding: 24px;
+    border-radius: 15px;
+    /* 박스 그림자 효과 */
+    box-shadow: 0px 20px 25px 15px rgba(0, 0, 0, 0.5),
+                0px 40px 30px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 이미지 */
+    .cardProductImg {
+        position: relative;
+        border-radius: 8px;
+        /* 초과하는 크기 숨김 */
+        overflow: hidden;
+
+        cursor:pointer;
+    }
+
+        .cardProductImg::after {
+            --aqua: hsl(178, 100%, 50%); 
+
+            content: url(./images/icon-view.svg);
+            background: var(--aqua);
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: all 0.25s ease;
+        }
+
+        .cardProductImg:hover::after {
+            opacity: 1;
+        }
+
+            .cardProductImg img {
+                width: 100%;
+                display: block;
+            }
+
+        .cardBody {
+            /* background-color: red; */
+            padding: 20px 0;
+            border-bottom: 1px solid var(--indigo-dye);
+            margin-bottom: 15px;
+        }
+
+        .cardTitle {
+            color: var(--white);
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            
+        }
+        
+        .cardTitle:hover {
+            color: var(--aqua);
+        }
+
+        .cardText {
+            color: var(--blue-yonder);
+            font-size: 18px;
+
+            /* 줄 사이 간격 */
+            line-height: 1.5;
+
+            margin-bottom: 20px;
+
+        }
+
+        .wrapText{
+            /* background-color: red; */
+            display: flex;
+
+            /* 내부 컨텐츠(텍스트) 양 사이드에 배치 */
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+        .cardPrice,
+        .cardCount {
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .cardPrice {
+            color: var(--aqua);
+        }
+
+        .cardCount {
+            color: var(--blue-yonder);
+        }
+
+        .cardIcon {
+            margin-right: 10px;
+        }
+
+    .cardFooter {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .cardAuthorImg {
+        width: 30px;
+        height: 30px;
+        border: 1px solid var(--white);
+        border-radius: 30px;
+        margin-right: 10px;
+    }
+
+    .cardAuthorName {
+        color: var(--blue-yonder);
+    }
+
+    .cardAuthorName a {
+        color: var(--white);
+        font-weight: 400;
+    }
+
+    .cardAuthorName a:hover {
+        color: var(--aqua);
+    }
